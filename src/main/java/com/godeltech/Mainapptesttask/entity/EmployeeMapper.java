@@ -20,7 +20,7 @@ public class EmployeeMapper implements RowMapper<Employee> {
         employee.setJobTitle(resultSet.getString("job_title"));
 
         Gender gender = Gender.valueOf(resultSet.getString("gender"));
-        LocalDate date = LocalDate.parse(resultSet.getString("day_of_birth"), DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+        LocalDate date = LocalDate.parse(resultSet.getString("date_of_birth"), DateTimeFormatter.ofPattern("yyyy-MM-dd"));
 
         employee.setGender(gender);
         employee.setDateOfBirth(date);
