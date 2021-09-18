@@ -3,10 +3,7 @@ package com.godeltech.Mainapptesttask.controller;
 import com.godeltech.Mainapptesttask.entity.Employee;
 import com.godeltech.Mainapptesttask.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -16,7 +13,7 @@ public class EmployeeController {
     @Autowired
     EmployeeService employeeService;
 
-    @GetMapping("/list")
+    @GetMapping("/employee/list")
     public List<Employee> findAllEmployee(){
         return employeeService.findAllEmployee();
     }
@@ -34,5 +31,12 @@ public class EmployeeController {
     @PostMapping("/employee/add")
     public Employee addEmployee(Employee employee){
         return employeeService.addEmployee(employee);
+    }
+
+    @PutMapping("/employee/update/{id}")
+    public Employee updateEmployee(Employee employee, @PathVariable Long id){
+
+        return employeeService.updateEmployee(employee, id);
+
     }
 }

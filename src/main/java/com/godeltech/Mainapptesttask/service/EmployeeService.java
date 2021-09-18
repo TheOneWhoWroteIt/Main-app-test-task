@@ -27,4 +27,8 @@ public class EmployeeService {
 
         return employee;
     }
+
+    public Employee updateEmployee(Employee employee, Long id){
+        return employeeDAO.updateEmployee(employee, id);
+    }
 }

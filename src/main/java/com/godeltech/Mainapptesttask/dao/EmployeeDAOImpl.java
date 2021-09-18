@@ -43,4 +43,12 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 
         return findEmployeeById(employee.getEmployeeId());
     }
+
+    @Override
+    public Employee updateEmployee(Employee employee, Long id) {
+        jdbcTemplate.update("update employee set first_name=?, last_name=?, department_id=?, job_title=?, gender=?::gender, date_of_birth=? where employee_id =?",
+                new Object[]{employee.getFirstName(), employee.getLastName(), employee.getDepartmentId(), employee.getJobTitle(), employee.getGender(), employee.getDateOfBirth(), id});
+
+        return findEmployeeById(id);
+    }
 }
