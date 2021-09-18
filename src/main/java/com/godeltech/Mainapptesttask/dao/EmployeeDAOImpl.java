@@ -19,4 +19,17 @@ public class EmployeeDAOImpl implements EmployeeDAO {
     public List<Employee> findAllEmployee() {
         return jdbcTemplate.query("select * from employee", new EmployeeMapper());
     }
+
+    @Override
+    public Employee findEmployeeById(Long id) {
+        Employee employee = null;
+
+        try{
+            employee = jdbcTemplate.queryForObject("select * from employee where employee_id =?", new Object[]{id}, new EmployeeMapper());
+        }catch (Exception ex){
+            System.out.println("Exception: " + ex);
+
+        }
+        return employee;
+    }
 }

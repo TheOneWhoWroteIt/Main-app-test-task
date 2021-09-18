@@ -7,4 +7,5 @@ import java.util.List;
 public interface EmployeeDAO {
 
     List<Employee> findAllEmployee();
+    Employee findEmployeeById(Long id);
 }
