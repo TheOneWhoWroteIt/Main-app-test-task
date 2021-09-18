@@ -51,4 +51,9 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 
         return findEmployeeById(id);
     }
+
+    @Override
+    public boolean deleteEmployee(Long id) {
+        return jdbcTemplate.update("delete from employee where employee_id=?", new Object[]{id}) > 0;
+    }
 }

@@ -10,4 +10,5 @@ public interface EmployeeDAO {
     Employee findEmployeeById(Long id);
     Employee addEmployee(Employee employee);
     Employee updateEmployee(Employee employee, Long id);
+    boolean deleteEmployee(Long id);
 }
