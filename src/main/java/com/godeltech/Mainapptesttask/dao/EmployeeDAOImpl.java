@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @Component
@@ -31,5 +33,14 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 
         }
         return employee;
+    }
+
+    @Override
+    public Employee addEmployee(Employee employee) {
+
+        jdbcTemplate.update("insert into employee (first_name, last_name, job_title, gender, date_of_birth) values (?,?,?,?::gender,?)",
+                new Object[]{employee.getFirstName(), employee.getLastName(), employee.getJobTitle(), employee.getGender(), employee.getDateOfBirth()});
+
+        return findEmployeeById(employee.getEmployeeId());
     }
 }

@@ -21,4 +21,10 @@ public class EmployeeService {
     public Employee findEmployeeById(Long id){
         return employeeDAO.findEmployeeById(id);
     }
+
+    public Employee addEmployee(Employee employee){
+        employeeDAO.addEmployee(employee);
+
+        return employee;
+    }
 }
