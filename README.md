@@ -27,3 +27,15 @@ Unit Tests* - не обязательная часть задания, но бу
 При разработке можете использовать удобную для вас IDE (IntelliJ Idea, Eclipse и т.п.).
 
 UI** - не обязательная часть задания, за которую следует браться, если вы в полном объеме выполнили основную часть задания, написали тесты и разобрались, как это все работает. Для этого достаточно написать несколько страниц, используя HTML и JS(JQuery).
+
+--------------------------------------------------------------
+
+### Данные для загрузки PostgreSQL в Docker и настройки базы данных.
+
+Основная база данных:
+docker run --name main-app-employee-postgres -e POSTGRES_PASSWORD=postgres -e POSTGRES_USER=postgres -e POSTGRES_DB=employeedb -p 5436:5432 -d postgres
+
+Тестовая база данных:
+docker run --name main-app-employee-test -e POSTGRES_PASSWORD=postgres -e POSTGRES_USER=postgres -e POSTGRES_DB=employeedbtest -p 5438:5432 -d postgres
+
+
