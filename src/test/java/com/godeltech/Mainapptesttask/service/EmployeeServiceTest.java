@@ -4,6 +4,7 @@ import com.godeltech.Mainapptesttask.dao.EmployeeDAO;
 import com.godeltech.Mainapptesttask.dao.EmployeeDAOImpl;
 import com.godeltech.Mainapptesttask.entity.Employee;
 import com.godeltech.Mainapptesttask.entity.Gender;
+import net.minidev.json.JSONUtil;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
@@ -85,5 +86,9 @@ class EmployeeServiceTest {
 
     @Test
     void deleteEmployee() {
+        EmployeeDAO employeeDAO = new EmployeeDAOImpl(jdbcTemplateTest);
+        int deleteEmployeeCheck = employeeDAO.deleteEmployee(1L);
+
+        Assert.assertTrue(deleteEmployeeCheck == 1);
     }
 }

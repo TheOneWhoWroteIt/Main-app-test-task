@@ -57,7 +57,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
     }
 
     @Override
-    public boolean deleteEmployee(Long id) {
-        return jdbcTemplate.update("delete from employee where employee_id=?", new Object[]{id}) > 0;
+    public int deleteEmployee(Long id) {
+        return jdbcTemplate.update("delete from employee where employee_id=?", new Object[]{id});
     }
 }
