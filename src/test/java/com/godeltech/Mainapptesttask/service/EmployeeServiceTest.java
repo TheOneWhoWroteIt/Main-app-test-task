@@ -69,6 +69,18 @@ class EmployeeServiceTest {
 
     @Test
     void updateEmployee() {
+        EmployeeDAO employeeDAO = new EmployeeDAOImpl(jdbcTemplateTest);
+        Employee employee = employeeDAO.findEmployeeById(1L);
+        employee.setFirstName("sem_test");
+        employee.setLastName("semov_test");
+        employee.setJobTitle("seo");
+
+        Employee updateEmployee = employeeDAO.updateEmployee(employee, 1L);
+
+        Assert.assertTrue(updateEmployee != null);
+        Assert.assertTrue(employee.getFirstName().equals(updateEmployee.getFirstName()));
+        Assert.assertTrue(employee.getLastName().equals(updateEmployee.getLastName()));
+        Assert.assertTrue(employee.getJobTitle().equals(updateEmployee.getJobTitle()));
     }
 
     @Test
