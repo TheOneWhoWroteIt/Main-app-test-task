@@ -1,6 +1,7 @@
 package com.godeltech.Mainapptesttask.entity;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 public class Employee {
 
@@ -12,8 +13,7 @@ public class Employee {
     private Gender gender;
     private LocalDate dateOfBirth;
 
-    public Employee(Long employeeId, String firstName, String lastName, Long departmentId, String jobTitle, Gender gender, LocalDate dateOfBirth) {
-        this.employeeId = employeeId;
+    public Employee(String firstName, String lastName, Long departmentId, String jobTitle, Gender gender, LocalDate dateOfBirth) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.departmentId = departmentId;
@@ -79,5 +79,37 @@ public class Employee {
 
     public void setDateOfBirth(LocalDate dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Employee employee = (Employee) o;
+        return Objects.equals(employeeId, employee.employeeId) &&
+                Objects.equals(firstName, employee.firstName) &&
+                Objects.equals(lastName, employee.lastName) &&
+                Objects.equals(departmentId, employee.departmentId) &&
+                Objects.equals(jobTitle, employee.jobTitle) &&
+                gender == employee.gender &&
+                Objects.equals(dateOfBirth, employee.dateOfBirth);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(employeeId, firstName, lastName, departmentId, jobTitle, gender, dateOfBirth);
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "employeeId=" + employeeId +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", departmentId=" + departmentId +
+                ", jobTitle='" + jobTitle + '\'' +
+                ", gender=" + gender +
+                ", dateOfBirth=" + dateOfBirth +
+                '}';
     }
 }
