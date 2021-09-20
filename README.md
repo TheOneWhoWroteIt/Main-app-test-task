@@ -33,9 +33,9 @@ UI** - не обязательная часть задания, за котор�
 ### Данные для загрузки PostgreSQL в Docker и настройки базы данных.
 
 Основная база данных:
-docker run --name main-app-employee-postgres -e POSTGRES_PASSWORD=postgres -e POSTGRES_USER=postgres -e POSTGRES_DB=employeedb -p 5436:5432 -d postgres
+* docker run --name main-app-employee-postgres -e POSTGRES_PASSWORD=postgres -e POSTGRES_USER=postgres -e POSTGRES_DB=employeedb -p 5436:5432 -d postgres
 
 Тестовая база данных:
-docker run --name main-app-employee-test -e POSTGRES_PASSWORD=postgres -e POSTGRES_USER=postgres -e POSTGRES_DB=employeedbtest -p 5438:5432 -d postgres
+* docker run --name main-app-employee-test -e POSTGRES_PASSWORD=postgres -e POSTGRES_USER=postgres -e POSTGRES_DB=employeedbtest -p 5438:5432 -d postgres
 
 
