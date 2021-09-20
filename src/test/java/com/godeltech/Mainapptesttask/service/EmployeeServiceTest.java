@@ -40,6 +40,12 @@ class EmployeeServiceTest {
 
     @Test
     void findEmployeeById() {
+        EmployeeDAO employeeDAO = new EmployeeDAOImpl(jdbcTemplateTest);
+        Employee employee = employeeDAO.findEmployeeById(1L);
+
+        Assert.assertTrue(employee != null);
+        Assert.assertTrue(employee.getFirstName().equals("petr_test"));
+        Assert.assertTrue(employee.getLastName().equals("petrov_test"));
     }
 
     @Test

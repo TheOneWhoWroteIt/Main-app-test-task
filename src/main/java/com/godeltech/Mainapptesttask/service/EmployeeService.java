@@ -10,8 +10,13 @@ import java.util.List;
 @Component
 public class EmployeeService {
 
-    @Autowired
+
     EmployeeDAOImpl employeeDAO;
+
+    @Autowired
+    public EmployeeService(EmployeeDAOImpl employeeDAO) {
+        this.employeeDAO = employeeDAO;
+    }
 
     public List<Employee> findAllEmployee(){
 
