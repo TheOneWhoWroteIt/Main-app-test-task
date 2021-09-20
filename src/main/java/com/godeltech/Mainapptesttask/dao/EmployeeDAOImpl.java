@@ -42,8 +42,8 @@ public class EmployeeDAOImpl implements EmployeeDAO {
     @Override
     public Employee addEmployee(Employee employee) {
 
-        jdbcTemplate.update("insert into employee (first_name, last_name, job_title, gender, date_of_birth) values (?,?,?,?::gender,?)",
-                new Object[]{employee.getFirstName(), employee.getLastName(), employee.getJobTitle(), employee.getGender(), employee.getDateOfBirth()});
+        jdbcTemplate.update("insert into employee (employee_id, first_name, last_name, department_id, job_title, gender, date_of_birth) values (?,?,?,?,?,?,?)",
+                new Object[]{employee.getEmployeeId(), employee.getFirstName(), employee.getLastName(), employee.getDepartmentId(), employee.getJobTitle(), employee.getGender(), employee.getDateOfBirth()});
 
         return findEmployeeById(employee.getEmployeeId());
     }

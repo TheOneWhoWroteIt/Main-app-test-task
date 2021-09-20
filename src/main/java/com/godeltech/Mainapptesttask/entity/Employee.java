@@ -10,10 +10,11 @@ public class Employee {
     private String lastName;
     private Long departmentId;
     private String jobTitle;
-    private Gender gender;
+    private String gender;
     private LocalDate dateOfBirth;
 
-    public Employee(String firstName, String lastName, Long departmentId, String jobTitle, Gender gender, LocalDate dateOfBirth) {
+    public Employee(Long employeeId, String firstName, String lastName, Long departmentId, String jobTitle, String gender, LocalDate dateOfBirth) {
+        this.employeeId = employeeId;
         this.firstName = firstName;
         this.lastName = lastName;
         this.departmentId = departmentId;
@@ -45,7 +46,7 @@ public class Employee {
         return jobTitle;
     }
 
-    public Gender getGender() {
+    public String getGender() {
         return gender;
     }
 
@@ -73,7 +74,7 @@ public class Employee {
         this.jobTitle = jobTitle;
     }
 
-    public void setGender(Gender gender) {
+    public void setGender(String gender) {
         this.gender = gender;
     }
 

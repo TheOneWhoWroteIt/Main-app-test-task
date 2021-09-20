@@ -1,4 +1,3 @@
-create type gender as ENUM ('MALE', 'FEMALE');
 
 create table if not exists employee(
 employee_id bigserial primary key,
@@ -6,7 +5,7 @@ first_name varchar(200) not null,
 last_name varchar(200) not null,
 department_id bigint default (1),
 job_title varchar(255) not null,
-gender gender not null,
+gender varchar(50) not null,
 date_of_birth date not null
 );
 

@@ -3,6 +3,7 @@ package com.godeltech.Mainapptesttask.service;
 import com.godeltech.Mainapptesttask.dao.EmployeeDAO;
 import com.godeltech.Mainapptesttask.dao.EmployeeDAOImpl;
 import com.godeltech.Mainapptesttask.entity.Employee;
+import com.godeltech.Mainapptesttask.entity.Gender;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
@@ -14,6 +15,8 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -50,6 +53,18 @@ class EmployeeServiceTest {
 
     @Test
     void addEmployee() {
+        EmployeeDAO employeeDAO = new EmployeeDAOImpl(jdbcTemplateTest);
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        LocalDate birthday = LocalDate.parse("1980-04-20", formatter);
+
+        Employee employee = new Employee(5L, "tim_test", "timov_test", 1L, "devOps", Gender.MALE.toString(), birthday);
+
+        Employee saveEmployee = employeeDAO.addEmployee(employee);
+
+        Assert.assertTrue(saveEmployee != null);
+        Assert.assertTrue(saveEmployee.getFirstName().equals(employee.getFirstName()));
+        Assert.assertTrue(saveEmployee.getLastName().equals(employee.getLastName()));
     }
 
     @Test
